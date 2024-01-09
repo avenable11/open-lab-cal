@@ -1,17 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+<title>Open Lab Calendar</title>
+<meta charset="utf-8" /> 
+<link rel="stylesheet" href="openlab.css\" />
+<link href='lib/main.css' rel='stylesheet' />
+<script src='lib/main.js'></script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+		initialView: 'timeGridDay',
+
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+		right: 'timeGridWeek,timeGridDay'
+        
+      },
+
+      displayEventTime: true, // don't show the time column in list view
+
+      // THIS KEY WON'T WORK IN PRODUCTION!!!
+      // To make your own Google API key, follow the directions here:
+      // http://fullcalendar.io/docs/google_calendar/
+      googleCalendarApiKey: 'AIzaSyDLnPWohFo0e2jsHw4NcWlnjlMfW6CmzNc',
+
+      // US Holidays
+      events: 'ivytechopenlabcalendar@gmail.com',
+
+      eventClick: function(arg) {
+        // opens events in a popup window
+        //window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+
+        arg.jsEvent.preventDefault() // don't navigate in main tab
+      },
+
+      loading: function(bool) {
+        document.getElementById('loading').style.display =
+          bool ? 'block' : 'none';
+      },
+	  nowIndicator: true,
+	  weekends: false,
+	  eventContent: function(arg) {
+		//console.log(JSON.stringify(arg.event));
+		var x;
+		if (arg.event.extendedProps.location) x = arg.event.title + ' - ' + arg.event.extendedProps.location;
+		if(arg.event.extendedProps.description) x += '\n'+ arg.event.extendedProps.description;
+		return x;
+	}
+
+    });
+
+    calendar.render();
+	
+  });
+
+</script>
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
+<div id="wrapper">
+  <header>
+    <h1>Open Lab Calendar</h1>
+    <h2>Ivy Tech Fort Wayne</h2>
+  </header>
+  <h3 id='welcome'>Welcome to the open lab!</h3>
+<p id='intro1'>Fort Wayne's School of Information Technology is providing open lab times where students can come in for extra help and tutoring with their coursework.</p>
 
+<p id='intro2'>All labs this semester will be held virtually and in <span style='font-weight: bold;'>CC2368</span> unless otherwise stated on the individual session. Students will also be able to seek online assistance/extra help from the instructors during the open lab hours via webcast using the Zoom link above. You can view today's schedule (or the this week's schedule below).</p>
+<p id='intro3'>You are free to attend any of the open lab sessions.  Be aware that the faculty running the open lab are experts in different subject areas.  That means that they may not be able to answer every question.  You can use the link above to go to the instructors page and see what subjects they teach.</p>
+  <div id='loading'>loading...</div>
+
+  <div id='calendar'></div>
+</body>
 </html>

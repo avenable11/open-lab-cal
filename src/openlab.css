@@ -1,0 +1,84 @@
+/*Author: Isaiah Abel */
+/*Date Written: April 30 2020 */
+/*Description: CSS for Open Lab Calendar project */
+
+#wrapper {width: 900px;
+	  margin-left:auto;
+	  margin-right:auto;}
+
+form fieldset {color: white;}
+
+fieldset {color: white;}
+
+
+/* body {background-image: url(images/green085.jpg);
+      background-repeat: repeat;} */
+
+header {background-image: linear-gradient(#6B8E23, #006400);
+	text-align: center;
+	color: white;
+	border-radius:25px;}
+
+footer {background-image: linear-gradient(#006400, #6B8E23);
+	color: white;
+	text-align: center;
+	border-radius:25px;}
+
+nav a {float: left;
+       display: block;
+       text-align: center;
+       width:223px;
+       font-size: 17px;
+       border: 1px solid black;
+       border-radius: 5px;
+       background-color: #228B22;
+       margin-bottom:15px;       
+}
+
+a:link {color:white; }
+a:visited {color:white;}
+a:hover {color:white; text-shadow: 1px 1px black;}
+
+.oneForty {width: 140px;
+	   display: block;
+	   float: left;}
+
+.collapse {border-collapse: collapse;}
+
+#centerTable {
+              margin-left:auto;
+	      margin-right:auto;}
+
+aside {color:white;}
+
+table {border: 2px solid rgb(0,0,85);
+       box-shadow: 1px 1px 1px rgb(51,51,51);
+       }
+
+td {padding: 5px;
+    text-align: center;}
+
+.tableColor { color: rgb(0,0,0); }
+
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #loading {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  #calendar,#welcome, #intro1, #intro2, #intro3 {
+    max-width: 930px;
+    margin: 0 auto;
+	padding-bottom: 15px;
+  }
+
+ 
