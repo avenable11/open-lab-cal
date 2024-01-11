@@ -35,9 +35,7 @@ nav a {float: left;
        margin-bottom:15px;       
 }
 
-a:link {color:white; }
-a:visited {color:white;}
-a:hover {color:white; text-shadow: 1px 1px black;}
+
 
 .oneForty {width: 140px;
 	   display: block;
